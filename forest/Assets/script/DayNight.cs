@@ -26,7 +26,7 @@ public class DayNight : MonoBehaviour
     {
         
     }
-    
+    //function whitch change day to night or night to day
     public void daynight()
     {
         if (!isnight )
@@ -53,8 +53,11 @@ public class DayNight : MonoBehaviour
         {
             for (var i = 0; i < rabits.Length; i++)
             {
+                
                 rabits[i].GetComponent<rabit>().isngiht = false;
                 rabits[i].GetComponent<rabit>().IsWandering = false;
+                if(!rabits[i].GetComponent<rabit>().isdead)
+                rabits[i].gameObject.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
                 StartCoroutine(wait());
                 rabits[i].SetActive(true);
             }

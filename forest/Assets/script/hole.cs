@@ -10,9 +10,5 @@ public class hole : MonoBehaviour
         transform.parent = null;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }

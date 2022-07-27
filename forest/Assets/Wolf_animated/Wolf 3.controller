@@ -55,7 +55,7 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 560, y: 30, z: 0}
+  m_AnyStatePosition: {x: 610, y: 60, z: 0}
   m_EntryPosition: {x: 90, y: 20, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -104,8 +104,8 @@ AnimatorStateTransition:
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0.25000012
-  m_TransitionOffset: 0.24344084
-  m_ExitTime: 1.0421288
+  m_TransitionOffset: 0.21118951
+  m_ExitTime: 1.0034273
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -174,9 +174,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25000012
-  m_TransitionOffset: 0.137669
-  m_ExitTime: 1.0638847
+  m_TransitionDuration: 0.60137504
+  m_TransitionOffset: 0.027328884
+  m_ExitTime: 0.8123094
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

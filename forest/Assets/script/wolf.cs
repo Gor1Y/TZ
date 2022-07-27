@@ -27,11 +27,12 @@ public class wolf : MonoBehaviour
         {
             if (ismove && !iseating && !isattacking)
             {
-                var step = speed * Time.deltaTime; // calculate distance to move
+                var step = speed * Time.deltaTime; 
                 transform.LookAt(target.transform); // look at object
+                gameObject.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
                 transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step); //move object
                 anim.SetInteger("state", 1);
-             //  anim.SetTrigger("walk");
+            
             }
           
            
@@ -53,28 +54,25 @@ public class wolf : MonoBehaviour
         if (isRotateingRight && !iseating && !isattacking)
         {
             transform.Rotate(transform.up * Time.deltaTime * rotationSpeed);
-            // anim.SetTrigger("walk");
               anim.SetInteger("state", 0);
-         //   anim.SetTrigger("idle");
         }
         if (isRotateingLeft && !iseating && !isattacking)
         {
             transform.Rotate(transform.up * Time.deltaTime * -rotationSpeed);
             anim.SetInteger("state", 0);
-           // anim.SetTrigger("idle");
         }
 
         if (IsWalking && !iseating && !isattacking)
         {
             gameObject.transform.Translate(0, 0, wanderspeed * 0.03f);
              anim.SetInteger("state", 1);
-           // anim.SetTrigger("walk");
         }
         if(iseating)
             anim.SetInteger("state", 2);
         else if (isattacking)
             anim.SetInteger("state", 3);
     }
+    
     private void OnTriggerStay(Collider other)
     {
         // check if target colide triger  
@@ -82,12 +80,18 @@ public class wolf : MonoBehaviour
         {
             target = other.gameObject;
             other.gameObject.GetComponent<rabit>().detected = true;
-          //  anim.SetTrigger("eating");
         }
 
        
     }
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Untagged")
+        {
+            target = null;
+
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         // check if target exit triger  
@@ -95,6 +99,7 @@ public class wolf : MonoBehaviour
         {
             target = null;
             other.gameObject.GetComponent<rabit>().detected = false;
+            
         }
     }
    
@@ -145,7 +150,7 @@ public class wolf : MonoBehaviour
         isattacking = false;
         iseating = true;
         yield return new WaitForSeconds(3);
-        Debug.Log("yup");
+        
         iseating = false;
     }
    

@@ -30,7 +30,7 @@ public class rabit : MonoBehaviour
     void Update()
     {
 
-
+        // wandering 
             if (IsWandering == false && !detected && !isdead)
             {
                 StartCoroutine(Wander());   
@@ -46,16 +46,18 @@ public class rabit : MonoBehaviour
             
             }
         // rotation
-        if (isRotateingRight)
+        if (isRotateingRight && !isdead)
                 transform.Rotate(transform.up * Time.deltaTime * rotationSpeed);
-            if (isRotateingLeft)
+            if (isRotateingLeft && !isdead)
                 transform.Rotate(transform.up * Time.deltaTime * -rotationSpeed);
 
+            //walk system and animation
         if (IsWalking && !isdead)
         {
             anim.SetInteger("State", 3);
             gameObject.transform.Translate(0, 0, wanderspeed * 0.03f);
         }
+        //eating and animation
         else if (!IsWalking && !detected && !isngiht && !isdead)
         {
             
@@ -64,10 +66,14 @@ public class rabit : MonoBehaviour
             
            
         }
-        
+        //dead animation
+        if (isdead)
+        {
+            anim.SetInteger("State", 0);
+        }
        
     }
-  
+    //wandering
     IEnumerator Wander()
     {
         int rotationTime = Random.Range(1, 3);
@@ -107,7 +113,7 @@ public class rabit : MonoBehaviour
     {
         if(other.gameObject.tag == "rabitsphere")
         {
-            Debug.Log("vishel");
+          
             detected = true;
         }
        
@@ -142,7 +148,7 @@ public class rabit : MonoBehaviour
             isdead = true;
             collision.gameObject.GetComponent<wolf>().target = null;
             gameObject.tag = "Untagged";
-            Debug.Log("Dead");
+          
             bx.isTrigger = true;
             rb.useGravity = false;
             rb.isKinematic = true;

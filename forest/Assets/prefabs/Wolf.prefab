@@ -1704,7 +1704,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45f9ddf8f8e9ba049b287c7bff91bf99, type: 2}
+  - {fileID: 2100000, guid: cd4e3166295a6c641b84e1708343a637, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1795,7 +1795,7 @@ Transform:
   - {fileID: 280555715918788966}
   - {fileID: 6157945149930746839}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 79.804, z: 0}
 --- !u!54 &6157945149454469757
 Rigidbody:
@@ -1858,9 +1858,12 @@ MonoBehaviour:
   detected: 0
   IsWandering: 0
   IsWalking: 0
+  iseating: 0
+  isattacking: 0
   rotationSpeed: 50
   isRotateingLeft: 0
   isRotateingRight: 0
+  anim: {fileID: 0}
 --- !u!95 &558822254
 Animator:
   serializedVersion: 4
